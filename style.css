@@ -1,0 +1,46 @@
+*{
+ margin:0;
+padding:0;
+}
+body{
+font-family:sans-serif;
+}
+#nav-bar{
+position:sticky;
+top:0;
+z-index:15;
+}
+.navbar{
+background-image:linear-gradient(to right ,#efe2e2 , #e5f0e5);}
+
+#recycle
+{
+    border-radius: 10px;
+}
+
+.section {
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 24px;
+        }
+
+        .section:nth-child(odd) {
+            background-color: #f9f9f9;
+        }
+
+        .section:nth-child(even) {
+            background-color: #e0e0e0;
+        }
+      #p{
+        background-image: url("img.jpg");
+      }
+      #t{
+        background-image: url("dust.jpg");
+        background-position: center; /* Center the image */
+    background-repeat: no-repeat; /* Do not repeat the image */
+    background-size: cover; /* Resize the background image to cover the entire container */
+    /* Additional styles (if needed) */
+    height: 100vh; /
+      }
