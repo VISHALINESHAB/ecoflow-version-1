@@ -1,3 +1,85 @@
+/* Add this CSS */
+/* Add this CSS */
+/* CSS for background transition and animation */
+
+/* Background transition */
+#reuse-recycle-reduce {
+  background: url('green.png') no-repeat center center fixed;
+  background-size: cover;
+  transition: background 1s ease;
+}
+
+/* CSS for material transformation animation */
+@keyframes materialTransformation {
+  0% {
+      opacity: 0;
+      transform: translateY(50px);
+  }
+  100% {
+      opacity: 1;
+      transform: translateY(0);
+  }
+}
+
+.material-item {
+  opacity: 0;
+  animation: materialTransformation 1s ease forwards;
+}
+/* CSS for background transition and animation */
+
+/* Background transition */
+#reuse-recycle-reduce {
+  background: url('green.png') no-repeat center center fixed;
+  background-size: cover;
+  transition: background 1s ease;
+}
+
+/* CSS for material transformation animation */
+@keyframes materialTransformation {
+  0% {
+      opacity: 0;
+      transform: translateY(50px);
+  }
+  100% {
+      opacity: 1;
+      transform: translateY(0);
+  }
+}
+
+.material-item {
+  opacity: 0;
+  animation: materialTransformation 1s ease forwards;
+}
+
+
+
+#p {
+  background: url('img.jpg') no-repeat center center;
+  background-size: cover;
+  position: relative;
+  color: white;
+  padding: 60px 0;
+  animation: backgroundAnimation 10s infinite alternate;
+}
+
+@keyframes backgroundAnimation {
+  0% {
+      background-position: center center;
+  }
+  100% {
+      background-position: top right;
+  }
+}
+
+.navbar {
+  transition: background-color 0.5s ease;
+}
+
+.navbar.scrolled {
+  background-color: #ffffff; /* Change to your navbar color */
+}
+
+
 *{
  margin:0;
 padding:0;
@@ -10,8 +92,7 @@ position:sticky;
 top:0;
 z-index:15;
 }
-.navbar{
-background-image:linear-gradient(to right ,#efe2e2 , #e5f0e5);}
+
 
 #recycle
 {
@@ -36,7 +117,7 @@ background-image:linear-gradient(to right ,#efe2e2 , #e5f0e5);}
       #p{
         background-image: url("img.jpg");
       }
-      #t{
+      #t{ background-color: #f9f9f9;
         background-image: url("dust.jpg");
         background-position: center; /* Center the image */
     background-repeat: no-repeat; /* Do not repeat the image */
@@ -44,3 +125,4 @@ background-image:linear-gradient(to right ,#efe2e2 , #e5f0e5);}
     /* Additional styles (if needed) */
     height: 100vh; /
       }
+      
