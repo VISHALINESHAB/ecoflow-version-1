@@ -3,98 +3,184 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>test FLOW</title>
+    <title>EcoFlow</title>
     
     <link rel="stylesheet" href="style.css">
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Roboto+Slab:wght@700&display=swap" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    <!-- Add your Bootstrap and Font Awesome links here -->
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+        }
+        h1, h3 {
+            font-family: 'Roboto Slab', serif;
+        }
+        #p {
+            background: url('img.jpg') no-repeat center center;
+            background-size: cover;
+            position: relative;
+            color: white;
+            padding: 60px 0;
+        }
+        #p::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.5); /* Adjust transparency here */
+        }
+        #p .container-fluid {
+            position: relative;
+            z-index: 1;
+        }
+        .card {
+            margin-bottom: 20px;
+            background-color: rgba(255, 255, 255, 0.9); /* Slightly transparent background for cards */
+        }
+        .card-title {
+            color: rgb(17, 225, 17);
+        }
+        .card-text {
+            color: #333;
+        }
+        .btn-custom {
+            background-color: #3cc80d;
+            color: white;
+        }
+        .btn-custom:hover {
+            background-color: #2b9a0a;
+            color: white;
+        }
+        .reduce-card {
+            background-color: #e0f7fa; /* Light cyan */
+        }
+        .reuse-card {
+            background-color: #f1f8e9; /* Light green */
+        }
+        .recycle-card {
+            background-color: #e8f5e9; /* Very light green */
+        }
+        .section {
+            background: linear-gradient(to right, #56ab2f, #a8e063);
+            color: white;
+            padding: 40px 0;
+        }
+        .section h2 {
+            font-size: 2.5rem;
+            font-family: 'Roboto Slab', serif;
+            margin-bottom: 20px;
+        }
+        .section p {
+            font-size: 1.2rem;
+            font-family: 'Roboto', sans-serif;
+            margin-bottom: 20px;
+        }
+        .section .btn-custom {
+            background-color: #ff8c00;
+            color: white;
+            font-weight: bold;
+            padding: 10px 20px;
+        }
+        .section .btn-custom:hover {
+            background-color: #e67600;
+            color: white;
+        }
+    </style>
 </head>
-<body>
+<body> 
+    
     <section id="nav-bar">
-        <nav class="navbar navbar-expand-lg navbar-light bg-light ">
-               <div class="flow"><a class="navbar-brand" href="#" style="color: #3cc80d;"> EcoFlow</a></div>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <div class="flow"><a class="navbar-brand" href="#" style="color: #3cc80d;">EcoFlow</a></div>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
-                       <ul class="navbar-nav ml-auto">
-                              <ul class="navbar-nav">
+                <ul class="navbar-nav ml-auto">
                     <li class="nav-item active">
-                        <a class="nav-link" href="#"style="color: #3cc80d;">HOME </a>
+                        <a class="nav-link" href="#" style="color: #3cc80d;">HOME</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#"style="color: #3cc80d;">SOLUTIONS </a>
+                        <a class="nav-link" href="http://localhost/donate/" style="color: #3cc80d;">DONATE</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#"style="color: #3cc80d;"> DONATE</a>
+                        <a class="nav-link" href="ourservice.html" style="color: #3cc80d;">OUR SERVICE</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#"style="color: #3cc80d;">USE CASE</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#"style="color: #3cc80d;"> OUR SERVICE</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#"style="color: #3cc80d;">CUSTOMER SUPPORT</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#"style="color: #3cc80d;">CAMPAIGNS</a>
-                    </li>
-             
+                        <a class="nav-link" href="#" style="color: #3cc80d;">CUSTOMER SUPPORT</a>
                     </li>
                 </ul>
-</ul></div>
-            
+            </div>
         </nav>
     </section>
+    
     <div id="p">
-    <div class="container-fluid">
-        <div class="row align-items-center">
-            <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
-                <h1 class="display-4"style="color:white;"> <b>smart waste management solutions</b></h1>
-                <p style="color:white;">By developing & deploying resilient hardware and beautiful software, we empower cities, businesses, and countries to manage waste smarter.</p>
-                <a href="#" class="btn btn-success">Contact Us</a>
-            </div>
-            <div class="col-md-6 text-center">
-                <img id="recycle" src="recycle.jpg" alt="Smart Waste Solutions" class="img-fluid">
-                
+        <div class="container-fluid">
+            <div class="row align-items-center">
+                <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
+                    <h1 class="display-4"><b>smart waste management solutions</b></h1>
+                    <p>By developing & deploying resilient hardware and beautiful software, we empower cities, businesses, and countries to manage waste smarter.</p>
+                    <a href="#" class="btn btn-success">Contact Us</a>
+                </div>
+                <div class="col-md-6 text-center">
+                    <img id="recycle" src="recycle.jpg" alt="Smart Waste Solutions" class="img-fluid">
+                </div>
             </div>
         </div>
     </div>
-</div>
-    <div class="container">
+    <div id="reuse-recycle-reduce">
+        <div class="material-item"> 
+    <div class="container my-4">
         <div class="row">
-          <div class="col-sm">
-                  <center> <h3 style="color:rgb(17, 225, 17);">reduce</h3><br></center>
-                    Reducing” means using less, such as using fewer plastic bottles or buying products with minimal packaging. It’s about cutting down on waste from the start. By being mindful of our resource usage, we can prevent unnecessary items from ending up in landfills. For instance, bringing your own reusable coffee cup or water bottle is an example of “reducing.” This simple action helps cut down on the need for single-use containers and reduces waste
-                  </center>
-          </div>
-          <div class="col-sm">
-            <center> <h3 style="color:rgb(17, 225, 17);">reuse</h3><br> 
-                “Reusing” involves using things again instead of throwing them away. There are creative ways to reuse items in your household. For example, repurpose old cardboard boxes for fun DIY projects or as storage containers. Reusing not only saves money but also reduces the number of items that end up in the trash. Another example is using an empty glass jar to store leftovers instead of discarding it. By giving items a second life, we reduce the need for new containers  
-            
-            
-            
-            </center>
-
-          </div>
-          <div class="col-sm">
-            <center><h3 style="color:rgb(17, 225, 17);">recycle</h3><br> 
-                “Recycling” is the process of collecting and processing materials like paper, plastic, and glass so they can be turned into new products. It’s a way to give old items a new life instead of sending them to the landfill. On average, over 69 million tons are recycled in the United States. Paper and cardboard make up about two-thirds of all recycled materials, followed by metals and other materials. However, food waste remains a significant problem, with 30-40% of all food produced in the U.S. being wasted. The 3 R’s hierarchy starts with “Reduce,” followed by “Reuse,” and finally “Recycle” to manage waste sustainably
-            </center>
-          </div>
+            <div class="col-md-4">
+                <div class="card h-100 reduce-card">
+                    <div class="card-body">
+                        <h3 class="card-title">reduce</h3>
+                        <p class="card-text">Reducing means using less, such as using fewer plastic bottles or buying products with minimal packaging. It’s about cutting down on waste from the start. By being mindful of our resource usage, we can prevent unnecessary items from ending up in landfills. For instance, bringing your own reusable coffee cup or water bottle is an example of reducing. This simple action helps cut down on the need for single-use containers and reduces waste.</p>
+                        <a href="#" class="btn btn-custom">Learn More</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="material-item"> 
+            <div class="col-md-4">
+                <div class="card h-100 reuse-card">
+                    <div class="card-body">
+                        <h3 class="card-title">reuse</h3>
+                        <p class="card-text">Reusing involves using things again instead of throwing them away. There are creative ways to reuse items in your household. For example, repurpose old cardboard boxes for fun DIY projects or as storage containers. Reusing not only saves money but also reduces the number of items that end up in the trash. Another example is using an empty glass jar to store leftovers instead of discarding it. By giving items a second life, we reduce the need for new containers.</p>
+                        <a href="#" class="btn btn-custom">Learn More</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="material-item"> 
+            <div class="col-md-4">
+                <div class="card h-100 recycle-card">
+                    <div class="card-body">
+                        <h3 class="card-title">recycle</h3>
+                        <p class="card-text">Recycling is the process of collecting and processing materials like paper, plastic, and glass so they can be turned into new products. It’s a way to give old items a new life instead of sending them to the landfill. On average, over 69 million tons are recycled in the United States. Paper and cardboard make up about two-thirds of all recycled materials, followed by metals and other materials. However, food waste remains a significant problem, with 30-40% of all food produced in the U.S. being wasted. The 3 R’s hierarchy starts with “Reduce,” followed by “Reuse,” and finally “Recycle” to manage waste sustainably.</p>
+                        <a href="#" class="btn btn-custom">Learn More</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-      </div>
-      <div class="section"id="t"style="color:white;"><b>
-    <center>  <h2>"End-to-end smart waste management solutions"</h2>
-        <p>
-            we provides enterprise-grade smart waste management solutions that support the digital transformation of waste management to achieve efficiency, transparency, and sustainability.</p>
-</b></center>
     </div>
-        
+    
+    <div class="section">
+        <div class="container text-center">
+            <h2>"End-to-end smart waste management solutions"</h2>
+            <p>We provide enterprise-grade smart waste management solutions that support the digital transformation of waste management to achieve efficiency, transparency, and sustainability.</p>
+            <a href="#" class="btn btn-custom">Discover More</a>
+        </div>
+    </div>
 
+    <script src="script.js"></script>
 </body>
 </html>
