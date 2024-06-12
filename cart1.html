@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WASTE MANAGEMENT SHOPPING CART</title>
+    <style>
+        .background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url("istockphoto-1342229204-1024x1024.png"); /* Your background image URL */
+            background-size: cover;
+            background-position: center;
+            filter: blur(8px);
+            z-index: -1; /* Ensure the background is behind other content */
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f1f1f1;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+        }
+
+        h1, h2 {
+            color: #004d00;
+        }
+
+        .search-container {
+            margin: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .search-container input {
+            padding: 10px;
+            font-size: 16px;
+            width: 300px;
+            border: 1px solid #ccc;
+            border-radius: 5px 0 0 5px;
+        }
+
+        .search-container button {
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-left: none;
+            background-color: #4CAF50;
+            color: white;
+            border-radius: 0 5px 5px 0;
+            cursor: pointer;
+        }
+
+        .search-container button img {
+            width: 20px;
+            height: 20px;
+        }
+
+        .content {
+            position: relative;
+            z-index: 1;
+            padding: 20px;
+        }
+
+        h1 {
+            font-size: 3em;
+            margin-bottom: 20px;
+        }
+
+        p {
+            font-size: 1.5em;
+        }
+
+        .product-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            padding: 20px;
+        }
+
+        .product {
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            padding: 10px;
+            background-color: #fff;
+            box-shadow: 0 2px 2px #9d9a9a1a;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            color: black; /* Ensure text color is readable */
+            height: 300px; /* Fixed height for all product boxes */
+            justify-content: space-between; /* Distribute space between elements */
+        }
+
+        .product img {
+            max-width: 150%;
+            border-radius: 5px;
+            height: 100px; /* Fixed height for images to keep the boxes uniform */
+            object-fit: cover; /* Ensure the image covers the area without distortion */
+        }
+
+        button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        #cart {
+            margin: 20px auto;
+            padding: 20px;
+            width: 80%;
+            max-width: 600px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            color: black; /* Ensure the text color is readable */
+        }
+
+        #cart ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        #cart li {
+            border-bottom: 1px solid #ccc;
+            padding: 10px;
+            text-align: left;
+        }
+
+        #no-results {
+            display: none;
+            color: red;
+            font-size: 18px;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="background"></div>
+    <div class="content">
+        <h1>Waste Management Shopping Cart</h1>
+    </div>
+    <div class="search-container">
+        <input type="text" id="search-bar" onkeyup="filterProducts()" placeholder="Search for products">
+        <button onclick="filterProducts()">
+            <img src="search_icon_url" alt="Search">
+        </button>
+    </div>
+
+    <!-- Product cards -->
+    <div class="product-container" id="product-container">
+        <div class="product" data-name="REUSABLE PLATES">
+            <img src="product_a_image_url.png" alt="Product A">
+            <h3>REUSABLE PLATES</h3>
+            <p>₹50.00</p>
+            <div class="quantity container">
+                <label for="quantity-a">Qty:</label>
+                <input type="number" id="quantity-a" value="1" min="1" onchange="updateCart('REUSABLE PLATES', 50, this.value)">
+            </div>
+            <button onclick="addToCart('REUSABLE PLATES', 50, document.getElementById('quantity-a').value)">Add to Cart</button>
+        </div>
+
+        <div class="product" data-name="REUSABLE PAPER">
+            <img src="product_b_image_url.png" alt="Product B">
+            <h3>REUSABLE PAPER</h3>
+            <p>₹100.00</p>
+            <div class="quantity container">
+                <label for="quantity-b">Qty:</label>
+                <input type="number" id="quantity-b" value="1" min="1" onchange="updateCart('REUSABLE PAPER', 100, this.value)">
+            </div>
+            <button onclick="addToCart('REUSABLE PAPER', 100, document.getElementById('quantity-b').value)">Add to Cart</button>
+        </div>
+
+        <div class="product" data-name="ECHO PENS">
+            <img src="product_c_image_url.png" alt="Product C">
+            <h3>ECHO PENS</h3>
+            <p>₹150.00</p>
+            <div class="quantity container">
+                <label for="quantity-c">Qty:</label>
+                <input type="number" id="quantity-c" value="1" min="1" onchange="updateCart('ECHO PENS', 150, this.value)">
+            </div>
+            <button onclick="addToCart('ECHO PENS', 150, document.getElementById('quantity-c').value)">Add to Cart</button>
+        </div>
+
+        <!-- Additional products -->
+
+        <div class="product" data-name="PAPER NOTES">
+            <img src="product_f_image_url.png" alt="Product D">
+            <h3>PAPER NOTES</h3>
+            <p>₹200.00</p>
+            <div class="quantity container">
+                <label for="quantity-f">Qty:</label>
+                <input type="number" id="quantity-f" value="1" min="1" onchange="updateCart('PAPER NOTES', 200, this.value)">
+            </div>
+            <button onclick="addToCart('PAPER NOTES', 200, document.getElementById('quantity-f').value)">Add to Cart</button>
+        </div>
+
+        <div class="product" data-name="PAPER BAG">
+            <img src="product_g_image_url.png" alt="Product E">
+            <h3>PAPER BAG</h3>
+            <p>₹250.00</p>
+            <div class="quantity container">
+                <label for="quantity-g">Qty:</label>
+                <input type="number" id="quantity-g" value="1" min="1" onchange="updateCart('PAPER BAG', 250, this.value)">
+            </div>
+            <button onclick="addToCart('PAPER BAG', 250, document.getElementById('quantity-g').value)">Add to Cart</button>
+        </div>
+        
+        <div class="product" data-name="PENCIL">
+            <img src="product_j_image_url.png" alt="Product F">
+            <h3>PENCIL</h3>
+            <p>₹250.00</p>
+            <div class="quantity container">
+                <label for="quantity-j">Qty:</label>
+                <input type="number" id="quantity-j" value="1" min="1" onchange="updateCart('PENCIL', 250, this.value)">
+            </div>
+            <button onclick="addToCart('PENCIL', 250, document.getElementById('quantity-j').value)">Add to Cart</button>
+        </div>
+        
+        <div class="product" data-name="CLOTH BAGS">
+            <img src="product_k_image_url.png" alt="Product K">
+            <h3>CLOTH BAGS</h3>
+            <p>₹250.00</p>
+            <div class="quantity container">
+                <label for="quantity-k">Qty:</label>
+                <input type="number" id="quantity-k" value="1" min="1" onchange="updateCart('CLOTH BAGS', 250, this.value)">
+            </div>
+            <button onclick="addToCart('CLOTH BAGS', 250, document.getElementById('quantity-k').value)">Add to Cart</button>
+        </div>
+        
+        <div class="product" data-name="STORAGE CONTAINER">
+            <img src="product_m_image_url.png" alt="Product M">
+            <h3>STORAGE CONTAINER</h3>
+            <p>₹200.00</p>
+            <div class="quantity container">
+                <label for="quantity-m">Qty:</label>
+                <input type="number" id="quantity-m" value="1" min="1" onchange="updateCart('STORAGE CONTAINER', 200, this.value)">
+            </div>
+            <button onclick="addToCart('STORAGE CONTAINER', 200, document.getElementById('quantity-m').value)">Add to Cart</button>
+        </div>
+        
+        <div class="product" data-name="TRASH BAGS">
+            <img src="product_n_image_url.png" alt="Product N">
+            <h3>TRASH BAGS</h3>
+            <p>₹150.00</p>
+            <div class="quantity container">
+                <label for="quantity-n">Qty:</label>
+                <input type="number" id="quantity-n" value="1" min="1" onchange="updateCart('TRASH BAGS', 150, this.value)">
+            </div>
+            <button onclick="addToCart('TRASH BAGS', 150, document.getElementById('quantity-n').value)">Add to Cart</button>
+        </div>
+        
+        <div class="product" data-name="PLASTIC BOWLS">
+            <img src="product_o_image_url.png" alt="Product O">
+            <h3>PLASTIC BOWLS</h3>
+            <p>₹250.00</p>
+            <div class="quantity container">
+                <label for="quantity-o">Qty:</label>
+                <input type="number" id="quantity-o" value="1" min="1" onchange="updateCart('PLASTIC BOWLS', 250, this.value)">
+            </div>
+            <button onclick="addToCart('PLASTIC BOWLS', 250, document.getElementById('quantity-o').value)">Add to Cart</button>
+        </div>
+        
+        <div class="product" data-name="PAPER CUPS">
+            <img src="product_p_image_url.png" alt="Product P">
+            <h3>PAPER CUPS</h3>
+            <p>₹100.00</p>
+            <div class="quantity container">
+                <label for="quantity-p">Qty:</label>
+                <input type="number" id="quantity-p" value="1" min="1" onchange="updateCart('PAPER CUPS', 100, this.value)">
+            </div>
+            <button onclick="addToCart('PAPER CUPS', 100, document.getElementById('quantity-p').value)">Add to Cart</button>
+        </div>
+        
+        <div class="product" data-name="SPONGES">
+            <img src="product_q_image_url.png" alt="Product Q">
+            <h3>SPONGES</h3>
+            <p>₹50.00</p>
+            <div class="quantity container">
+                <label for="quantity-q">Qty:</label>
+                <input type="number" id="quantity-q" value="1" min="1" onchange="updateCart('SPONGES', 50, this.value)">
+            </div>
+            <button onclick="addToCart('SPONGES', 50, document.getElementById('quantity-q').value)">Add to Cart</button>
+        </div>
+        
+        <div class="product" data-name="STORAGE CONTAINER">
+            <img src="product_r_image_url.png" alt="Product R">
+            <h3>STORAGE CONTAINER</h3>
+            <p>₹50.00</p>
+            <div class="quantity container">
+                <label for="quantity-r">Qty:</label>
+                <input type="number" id="quantity-r" value="1" min="1" onchange="updateCart('STORAGE CONTAINER', 50, this.value)">
+            </div>
+            <button onclick="addToCart('STORAGE CONTAINER', 50, document.getElementById('quantity-r').value)">Add to Cart</button>
+        </div>
+        
+        <div class="product" data-name="PAPER SHEETS">
+            <img src="product_s_image_url.png" alt="Product S">
+            <h3>PAPER SHEETS</h3>
+            <p>₹50.00</p>
+            <div class="quantity container">
+                <label for="quantity-s">Qty:</label>
+                <input type="number" id="quantity-s" value="1" min="1" onchange="updateCart('PAPER SHEETS', 50, this.value)">
+            </div>
+            <button onclick="addToCart('PAPER SHEETS', 50, document.getElementById('quantity-s').value)">Add to Cart</button>
+        </div>
+        
+        <div class="product" data-name="COTTON PADS">
+            <img src="product_u_image_url.png" alt="Product U">
+            <h3>COTTON PADS</h3>
+            <p>₹50.00</p>
+            <div class="quantity container">
+                <label for="quantity-u">Qty:</label>
+                <input type="number" id="quantity-u" value="1" min="1" onchange="updateCart('COTTON PADS', 50, this.value)">
+            </div>
+            <button onclick="addToCart('COTTON PADS', 50, document.getElementById('quantity-u').value)">Add to Cart</button>
+        </div>
+        
+        <div class="product" data-name="COTTON PADS">
+            <img src="product_v_image_url.png" alt="Product V">
+            <h3>COTTON PADS</h3>
+            <p>₹50.00</p>
+            <div class="quantity container">
+                <label for="quantity-v">Qty:</label>
+                <input type="number" id="quantity-v" value="1" min="1" onchange="updateCart('COTTON PADS', 50, this.value)">
+            </div>
+            <button onclick="addToCart('COTTON PADS', 50, document.getElementById('quantity-v').value)">Add to Cart</button>
+        </div>
+    </div>
+
+    <!-- Cart section -->
+    <div id="cart">
+        <h2>Your Cart</h2>
+        <ul id="cart-items">
+            <!-- Cart items will be dynamically added here -->
+        </ul>
+        <button onclick="checkout()">Checkout</button>
+    </div>
+
+    <script>
+        // Initialize an empty cart
+        const cart = [];
+
+        // Function to add a product to the cart
+        function addToCart(productName, price, quantity) {
+            const item = { name: productName, price: price, quantity: Number(quantity) };
+            const existingItem = cart.find(cartItem => cartItem.name === productName);
+
+            if (existingItem) {
+                existingItem.quantity += item.quantity;
+            } else {
+                cart.push(item);
+            }
+
+            updateCartDisplay();
+        }
+
+        // Function to update the cart display
+        function updateCartDisplay() {
+            const cartElement = document.getElementById('cart-items');
+            cartElement.innerHTML = '';
+
+            cart.forEach(item => {
+                const li = document.createElement('li');
+                li.textContent = `${item.name} - ₹${(item.price * item.quantity).toFixed(2)} (Qty: ${item.quantity})`;
+                cartElement.appendChild(li);
+            });
+        }
+
+        // Function to simulate checkout (you can customize this)
+        function checkout() {
+            let total = 0;
+            cart.forEach(item => {
+                total += item.price * item.quantity;
+            });
+            alert(`Total amount: ₹${total.toFixed(2)}`);
+        }
+
+        // Function to filter products
+        function filterProducts() {
+            const input = document.getElementById('search-bar').value.toUpperCase();
+            const products = document.querySelectorAll('.product');
+
+            let anyVisible = false;
+            products.forEach(product => {
+                const name = product.getAttribute('data-name').toUpperCase();
+                if (name.indexOf(input) > -1) {
+                    product.style.display = '';
+                    anyVisible = true;
+                } else {
+                    product.style.display = 'none';
+                }
+            });
+
+            document.getElementById('no-results').style.display = anyVisible ? 'none' : 'block';
+        }
+    </script>
+</body>
+</html>
